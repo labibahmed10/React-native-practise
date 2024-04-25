@@ -26,7 +26,17 @@ export default function Rootlayout() {
   return (
     // <SafeAreaView>
     // <SafeAreaProvider>
-    <Stack>
+    <Stack
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: "#ffd1cc",
+        },
+        headerTintColor: "black",
+        headerTitleStyle: {
+          fontWeight: "bold",
+        },
+      }}
+    >
       <Stack.Screen
         name="index"
         options={{
