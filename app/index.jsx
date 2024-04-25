@@ -8,7 +8,7 @@ export default function Page() {
   return (
     <View className="flex-1 items-center justify-center bg-[#f3edd5]">
       {/* <StatusBar style="auto" /> */}
-      <Text className="text-3xl mb-5 font-bold shadow-xl bg-slate-200 px-10">Index page!</Text>
+      <Text className="text-3xl font-pblack">Index page!</Text>
 
       <Link href={`/profile`} asChild>
         <Button title="Home" />
