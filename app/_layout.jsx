@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Slot, SplashScreen, Stack, Tabs } from "expo-router";
+import { SplashScreen, Stack } from "expo-router";
 import { useFonts } from "expo-font";
 
 SplashScreen.preventAutoHideAsync();
@@ -24,6 +24,8 @@ export default function Rootlayout() {
   if (!fontsLoaded && !error) return null;
 
   return (
+    // <SafeAreaView>
+    // <SafeAreaProvider>
     <Stack>
       <Stack.Screen
         name="index"
@@ -32,5 +34,8 @@ export default function Rootlayout() {
         }}
       />
     </Stack>
+
+    // </SafeAreaProvider>
+    //  </SafeAreaView>
   );
 }
