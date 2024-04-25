@@ -1,19 +1,27 @@
-import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
+import React from "react";
+import { StatusBar } from "expo-status-bar";
+import { Slot } from "expo-router";
 
-export default function App() {
+const Rootlayout = () => {
   return (
-    <View style={styles.container}>
-      <Text>what are you doing ayy</Text>
-      <StatusBar style="dark" />
-    </View>
+    <>
+      {/* <View style={styles.container}>
+        <Text>Rootlayout</Text>
+        <StatusBar style="dark" />
+      </View> */}
+      <Slot />
+    </>
   );
-}
+};
+
+export default Rootlayout;
 
 const styles = StyleSheet.create({
   container: {
+    display: "flex",
     flex: 1,
-    backgroundColor: "#ddd",
+    backgroundColor: "#ddeeee",
     alignItems: "center",
     justifyContent: "center",
   },
