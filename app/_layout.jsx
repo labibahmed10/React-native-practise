@@ -1,28 +1,17 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { StatusBar } from "expo-status-bar";
-import { Slot } from "expo-router";
+import { Slot, Stack, Tabs } from "expo-router";
 
-const Rootlayout = () => {
+export default function Rootlayout() {
   return (
-    <>
-      {/* <View style={styles.container}>
-        <Text>Rootlayout</Text>
-        <StatusBar style="dark" />
-      </View> */}
-      <Slot />
-    </>
+    <Stack>
+      <Stack.Screen
+        name="index"
+        options={{
+          headerShown: false,
+        }}
+      />
+    </Stack>
   );
-};
-
-export default Rootlayout;
-
-const styles = StyleSheet.create({
-  container: {
-    display: "flex",
-    flex: 1,
-    backgroundColor: "#ddeeee",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
+}

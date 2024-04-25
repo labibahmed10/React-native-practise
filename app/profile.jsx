@@ -14,7 +14,7 @@ export default function Profile() {
       {/* </Button> */}
     </View>
   );
-}
+}  
 
 const styles = StyleSheet.create({
   container: {
