@@ -24,17 +24,12 @@ export default function Rootlayout() {
   if (!fontsLoaded && !error) return null;
 
   return (
-    // <SafeAreaView>
-    // <SafeAreaProvider>
     <Stack
       screenOptions={{
         headerStyle: {
-          backgroundColor: "#ffd1cc",
+          backgroundColor: "#161622",
         },
-        headerTintColor: "black",
-        headerTitleStyle: {
-          fontWeight: "bold",
-        },
+        headerTintColor: "white",
       }}
     >
       <Stack.Screen
@@ -44,8 +39,5 @@ export default function Rootlayout() {
         }}
       />
     </Stack>
-
-    // </SafeAreaProvider>
-    //  </SafeAreaView>
   );
 }
