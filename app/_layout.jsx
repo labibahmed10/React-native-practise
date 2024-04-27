@@ -40,6 +40,18 @@ export default function Rootlayout() {
             headerShown: false,
           }}
         />
+        <Stack.Screen
+          name="(auth)"
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="(tabs)"
+          options={{
+            headerShown: false,
+          }}
+        />
       </Stack>
       <StatusBar backgroundColor="#1E1E2D" style="dark" />
     </>
