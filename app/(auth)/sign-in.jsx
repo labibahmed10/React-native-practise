@@ -14,7 +14,8 @@ export default function SignInScreen() {
           <Text className="text-2xl text-white font-psemibold mt-10 font-semibold">Log in to Aora</Text>
 
           <TextFormField label={"Email"} />
-          <PassFormField label={"Password"} />
+          <TextFormField label={"Password"} />
+          {/* <PassFormField label={"Password"} /> */}
         </View>
       </ScrollView>
     </SafeAreaView>
