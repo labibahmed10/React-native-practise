@@ -1,8 +1,8 @@
-import { Link } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import { Image, ScrollView, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { images } from "../constants";
+import CustomeButton from "../components/CustomeButton";
 
 export default function Page() {
   return (
@@ -21,7 +21,11 @@ export default function Page() {
           </View>
 
           <Text className="text-center font-pregular text-gray-100 mt-5">Where Creativity Meets Innovation: Embark on a Journey of Limitless Exploration with Aora</Text>
+
+          <CustomeButton title="Continue with email" handlePress={() => {}} addStyle="mt-6 w-full" />
         </View>
+
+        <StatusBar backgroundColor="#1E1E2D" style="light" />
       </ScrollView>
     </SafeAreaView>
   );
