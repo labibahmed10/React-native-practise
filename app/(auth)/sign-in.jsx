@@ -51,7 +51,7 @@ export default function SignInScreen() {
 
           <Text className="text-gray-100 text-lg text-center font-pmedium mt-5">
             Don’t have an account?{" "}
-            <Link href="/home" className="text-secondary">
+            <Link href="/sign-up" className="text-secondary">
               Signup
             </Link>
           </Text>
