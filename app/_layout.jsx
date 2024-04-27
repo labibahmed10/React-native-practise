@@ -41,7 +41,7 @@ export default function Rootlayout() {
           }}
         />
       </Stack>
-      <StatusBar backgroundColor="#1E1E2D" style="light" />
+      <StatusBar backgroundColor="#1E1E2D" style="dark" />
     </>
   );
 }
