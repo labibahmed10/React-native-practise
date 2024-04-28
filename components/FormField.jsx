@@ -2,7 +2,7 @@ import { View, Text, TextInput, TouchableOpacity, Image } from "react-native";
 import React, { useState } from "react";
 import { icons } from "../constants";
 
-export default function TextFormField({ label, value, handleChangeText, exdStyle }) {
+export default function FormField({ label, value, handleChangeText, exdStyle, ...props }) {
   const [showPassword, setShowPassword] = useState(false);
   return (
     <View className="mt-8 space-y-3">
@@ -18,6 +18,7 @@ export default function TextFormField({ label, value, handleChangeText, exdStyle
           secureTextEntry={label === "Password" && !showPassword}
           value={value}
           onChangeText={handleChangeText}
+          {...props}
         />
 
         {label === "Password" && (

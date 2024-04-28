@@ -1,7 +1,7 @@
 import { View, Text, ScrollView, Image } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { images } from "../../constants";
-import TextFormField from "../../components/TextFormField";
+import FormField from "../../components/FormField";
 import { useState } from "react";
 import CustomeButton from "../../components/CustomeButton";
 import { Link } from "expo-router";
@@ -20,7 +20,7 @@ export default function SignInScreen() {
 
           <Text className="text-2xl text-white font-psemibold mt-10 font-semibold">Log in to Aora</Text>
 
-          <TextFormField
+          <FormField
             label={"Email"}
             value={formVal.email}
             handleChangeText={(e) =>
@@ -29,9 +29,9 @@ export default function SignInScreen() {
                 email: e,
               })
             }
-            exdStyle=""
+            
           />
-          <TextFormField
+          <FormField
             label={"Password"}
             value={formVal.password}
             handleChangeText={(e) =>
@@ -40,7 +40,6 @@ export default function SignInScreen() {
                 password: e,
               })
             }
-            exdStyle=""
           />
 
           <View className="items-end mt-3">

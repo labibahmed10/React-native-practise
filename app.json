@@ -20,7 +20,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#bbb"
-      }
+      },
+      "package": "com.labib.nativeprac"
     },
     "web": {
       "favicon": "./assets/favicon.png"

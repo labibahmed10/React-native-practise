@@ -1,7 +1,7 @@
 import { View, Text, ScrollView, Image, Dimensions } from "react-native";
 import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import TextFormField from "../../components/TextFormField";
+import FormField from "../../components/FormField";
 import { images } from "../../constants";
 import CustomeButton from "../../components/CustomeButton";
 import { Link } from "expo-router";
@@ -26,18 +26,17 @@ export default function SingUpScreen() {
 
           <Text className="text-2xl text-white font-psemibold mt-10 font-semibold">Sign Up into Aora</Text>
 
-          <TextFormField
+          <FormField
             label={"Username"}
-            value={formVal.email}
+            value={formVal.username}
             handleChangeText={(e) =>
               setFormVal({
                 ...formVal,
                 username: e,
               })
             }
-            exdStyle=""
           />
-          <TextFormField
+          <FormField
             label={"Email"}
             value={formVal.email}
             handleChangeText={(e) =>
@@ -46,9 +45,9 @@ export default function SingUpScreen() {
                 email: e,
               })
             }
-            exdStyle=""
+            keyboardType="email-address"
           />
-          <TextFormField
+          <FormField
             label={"Password"}
             value={formVal.password}
             handleChangeText={(e) =>
