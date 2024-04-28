@@ -13,9 +13,9 @@ export default function SignInScreen() {
   });
   const [submitting, isSubmitting] = useState(false);
   return (
-    <SafeAreaView className="bg-primary h-full ">
-      <ScrollView contentContainerStyle={{ height: "100%" }}>
-        <View className="w-full h-full justify-center px-4 my-6">
+    <SafeAreaView className="bg-primary h-full">
+      <ScrollView>
+        <View className="w-full h-full flex justify-center px-4 my-6">
           <Image source={images.logo} className="w-[115px] h-[35px]" resizeMode="contain" />
 
           <Text className="text-2xl text-white font-psemibold mt-10 font-semibold">Log in to Aora</Text>

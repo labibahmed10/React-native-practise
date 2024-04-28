@@ -2,7 +2,7 @@ import { Image, ScrollView, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { images } from "../constants";
 import CustomeButton from "../components/CustomeButton";
-import { router } from "expo-router";
+import { Link, router } from "expo-router";
 
 export default function Page() {
   return (
