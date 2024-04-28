@@ -22,8 +22,8 @@ export default function SingUpScreen() {
     }
     isSubmitting(true);
     try {
-      const result = await createUser(formVal);
-      console.log(result);
+      await createUser(formVal);
+
       router.replace("/home");
     } catch (error) {
       Alert.alert("Error", error.message);
