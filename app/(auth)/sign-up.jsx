@@ -1,10 +1,11 @@
-import { View, Text, ScrollView, Image, Dimensions } from "react-native";
+import { View, Text, ScrollView, Image, Dimensions, Alert } from "react-native";
 import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import FormField from "../../components/FormField";
 import { images } from "../../constants";
 import CustomeButton from "../../components/CustomeButton";
-import { Link } from "expo-router";
+import { Link, router } from "expo-router";
+import { createUser } from "../../lib/appwrite";
 
 export default function SingUpScreen() {
   const [formVal, setFormVal] = useState({
@@ -12,7 +13,25 @@ export default function SingUpScreen() {
     email: "",
     password: "",
   });
+
   const [submitting, isSubmitting] = useState(false);
+
+  const submit = async () => {
+    if (!formVal.email || !formVal.username || !formVal.password) {
+      Alert.alert("Error", "Please fill up the form!");
+    }
+    isSubmitting(true);
+    try {
+      const result = await createUser(formVal);
+      console.log(result);
+      router.replace("/home");
+    } catch (error) {
+      Alert.alert("Error", error.message);
+    } finally {
+      isSubmitting(false);
+    }
+  };
+
   return (
     <SafeAreaView className="bg-primary h-full ">
       <ScrollView>
@@ -63,7 +82,7 @@ export default function SingUpScreen() {
             <Text className="text-gray-100 font-pbold text-base">Forgot Password?</Text>
           </View>
 
-          <CustomeButton title="Sign In" addStyle="mt-5" isLoading={submitting} />
+          <CustomeButton title="Sign Up" addStyle="mt-5" isLoading={submitting} handlePress={submit} />
 
           <Text className="text-gray-100 text-lg text-center font-pmedium mt-5">
             Already have an account?{" "}
