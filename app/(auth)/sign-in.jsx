@@ -4,7 +4,7 @@ import { images } from "../../constants";
 import FormField from "../../components/FormField";
 import { useState } from "react";
 import CustomeButton from "../../components/CustomeButton";
-import { Link } from "expo-router";
+import { Link, router } from "expo-router";
 import { signInUser } from "../../lib/appwrite";
 
 export default function SignInScreen() {
