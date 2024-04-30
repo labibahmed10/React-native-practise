@@ -1,6 +1,6 @@
 import { View, Text, Image } from "react-native";
 import React from "react";
-import { Tabs, Redirect } from "expo-router";
+import { Tabs } from "expo-router";
 import icons from "../../constants/icons";
 
 const TabIcon = ({ icon, color, focused, name }) => {
@@ -75,7 +75,6 @@ export default function TabsLayout() {
           headerShown: false,
           headerShadowVisible: true,
           href: "/create",
-          // tabBarActiveBackgroundColor: "#ffeeff",
           tabBarIcon: ({ focused, color }) => {
             return <TabIcon icon={icons.plus} name="Create" color={color} focused={focused} />;
           },
