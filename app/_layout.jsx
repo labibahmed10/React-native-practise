@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { SplashScreen, Stack } from "expo-router";
 import { useFonts } from "expo-font";
 import { StatusBar } from "expo-status-bar";
+import GlobalContextProvider from "../context/GlobalProvider";
 
 SplashScreen.preventAutoHideAsync();
 export default function Rootlayout() {
@@ -25,7 +26,7 @@ export default function Rootlayout() {
   if (!fontsLoaded && !error) return null;
 
   return (
-    <>
+    <GlobalContextProvider>
       <Stack
         screenOptions={{
           headerStyle: {
@@ -54,6 +55,6 @@ export default function Rootlayout() {
         />
       </Stack>
       <StatusBar backgroundColor="#1E1E2D" style="light" />
-    </>
+    </GlobalContextProvider>
   );
 }
