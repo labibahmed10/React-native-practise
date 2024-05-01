@@ -26,7 +26,7 @@ export default function Page() {
 
           <Text className="text-center font-pregular text-gray-100 mt-5">Where Creativity Meets Innovation: Embark on a Journey of Limitless Exploration with Aora</Text>
 
-          <CustomeButton title="Continue with email" handlePress={() => router.push("sign-in")} addStyle="mt-6 w-full" />
+          <CustomeButton textStyle={""} isLoading={false} title="Continue with email" handlePress={() => router.push("sign-in")} addStyle="mt-6 w-full" />
         </View>
       </ScrollView>
     </SafeAreaView>

@@ -47,6 +47,7 @@ export default function SignInScreen() {
                 email: e,
               })
             }
+            exdStyle={""}
           />
           <FormField
             label={"Password"}
@@ -57,13 +58,14 @@ export default function SignInScreen() {
                 password: e,
               })
             }
+            exdStyle={""}
           />
 
           <View className="items-end mt-3">
             <Text className="text-gray-100 font-pbold text-base">Forgot Password?</Text>
           </View>
 
-          <CustomeButton title="Sign In" addStyle="mt-5" isLoading={submitting} handlePress={submit} />
+          <CustomeButton textStyle="" title="Sign In" addStyle="mt-5" isLoading={submitting} handlePress={submit} />
 
           <Text className="text-gray-100 text-lg text-center font-pmedium mt-5">
             Don’t have an account?{" "}

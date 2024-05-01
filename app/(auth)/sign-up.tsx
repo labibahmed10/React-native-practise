@@ -33,7 +33,7 @@ export default function SingUpScreen() {
   };
 
   return (
-    <SafeAreaView className="bg-primary h-full ">
+    <SafeAreaView className="bg-primary h-full">
       <ScrollView>
         <View
           className="w-full h-full justify-center px-4 my-6"
@@ -54,6 +54,7 @@ export default function SingUpScreen() {
                 username: e,
               })
             }
+            exdStyle={""}
           />
           <FormField
             label={"Email"}
@@ -64,6 +65,7 @@ export default function SingUpScreen() {
                 email: e,
               })
             }
+            exdStyle={""}
             keyboardType="email-address"
           />
           <FormField
@@ -82,7 +84,7 @@ export default function SingUpScreen() {
             <Text className="text-gray-100 font-pbold text-base">Forgot Password?</Text>
           </View>
 
-          <CustomeButton title="Sign Up" addStyle="mt-5" isLoading={submitting} handlePress={submit} />
+          <CustomeButton textStyle="" title="Sign Up" addStyle="mt-5" isLoading={submitting} handlePress={submit} />
 
           <Text className="text-gray-100 text-lg text-center font-pmedium mt-5">
             Already have an account?{" "}
