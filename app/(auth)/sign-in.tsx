@@ -1,11 +1,11 @@
 import { View, Text, ScrollView, Image, Alert } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { images } from "../../constants";
-import FormField from "../../components/FormField";
+import { images } from "@/constants";
+import FormField from "@/components/FormField";
 import { useState } from "react";
-import CustomeButton from "../../components/CustomeButton";
+import CustomeButton from "@/components/CustomeButton";
 import { Link, router } from "expo-router";
-import { signInUser } from "../../lib/appwrite";
+import { signInUser } from "@/lib/appwrite";
 
 export default function SignInScreen() {
   const [formVal, setFormVal] = useState({

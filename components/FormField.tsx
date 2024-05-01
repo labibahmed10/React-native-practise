@@ -1,6 +1,6 @@
 import { View, Text, TextInput, TouchableOpacity, Image } from "react-native";
 import React, { useState } from "react";
-import { icons } from "../constants";
+import { icons } from "@/constants";
 
 export default function FormField({ label, value, handleChangeText, exdStyle, ...props }) {
   const [showPassword, setShowPassword] = useState(false);

@@ -1,4 +1,4 @@
-import { Text, TouchableHighlight, TouchableOpacity } from "react-native";
+import { Text, TouchableOpacity } from "react-native";
 import React from "react";
 
 export default function CustomeButton({ title, handlePress, addStyle, textStyle, isLoading }) {

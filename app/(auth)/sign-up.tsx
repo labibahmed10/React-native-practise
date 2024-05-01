@@ -1,11 +1,11 @@
-import { View, Text, ScrollView, Image, Dimensions, Alert } from "react-native";
+import { View, Text, ScrollView, Image, Alert } from "react-native";
 import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import FormField from "../../components/FormField";
-import { images } from "../../constants";
-import CustomeButton from "../../components/CustomeButton";
+import FormField from "@/components/FormField";
+import { images } from "@/constants";
+import CustomeButton from "@/components/CustomeButton";
 import { Link, router } from "expo-router";
-import { createUser } from "../../lib/appwrite";
+import { createUser } from "@/lib/appwrite";
 
 export default function SingUpScreen() {
   const [formVal, setFormVal] = useState({
