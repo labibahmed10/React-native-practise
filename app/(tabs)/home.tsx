@@ -3,6 +3,7 @@ import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
 import { images } from "@/constants";
+import SearchInput from "@/components/SearchInput";
 
 export default function Home() {
   return (
@@ -25,6 +26,15 @@ export default function Home() {
               <View>
                 <Image className="w-10 h-10" source={images.logoSmall} alt="aora logo" resizeMode="contain" />
               </View>
+            </View>
+
+            {/* search input */}
+            <SearchInput />
+
+            {/* horizontal video list */}
+
+            <View className="w-full flex-1 pt-5 pb-8">
+              <Text className="font-pmedium text-sm text-gray-100">Trending Videos</Text>
             </View>
           </View>
         )}
