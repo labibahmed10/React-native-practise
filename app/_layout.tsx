@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
 import { SplashScreen, Stack } from "expo-router";
 import { useFonts } from "expo-font";
 import { StatusBar } from "expo-status-bar";
 import GlobalContextProvider from "../context/GlobalProvider";
+import { useEffect } from "react";
 
 SplashScreen.preventAutoHideAsync();
 export default function Rootlayout() {

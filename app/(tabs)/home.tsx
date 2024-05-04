@@ -1,16 +1,27 @@
-import { View, Text, FlatList, Image } from "react-native";
-import React from "react";
+import { View, Text, FlatList, Image, RefreshControl } from "react-native";
+import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
 import { images } from "@/constants";
 import SearchInput from "@/components/SearchInput";
+import TrendingVideos from "@/components/TrendingVideos";
+import EmptyFound from "@/components/EmptyFound";
 
 export default function Home() {
+  const [refreshing, setRefreshing] = useState(false);
+
+  const onRefresh = async () => {
+    setRefreshing(true);
+
+    // after a refresh -> if any new data is available
+    setRefreshing(false);
+  };
+
   return (
     <SafeAreaView className="bg-primary h-full">
       <FlatList
         className="px-4"
-        data={[{ key: "a" }, { key: "b" }, { key: "c" }]}
+        data={[{ key: "1" }, { key: "2" }, { key: "3" }]}
         renderItem={({ item }) => <Text>{item.key}</Text>}
         keyExtractor={(item) => item.key}
         ListHeaderComponent={() => (
@@ -36,8 +47,14 @@ export default function Home() {
             <View className="w-full flex-1 pt-5 pb-8">
               <Text className="font-pmedium text-sm text-gray-100">Trending Videos</Text>
             </View>
+
+            <TrendingVideos posts={[{ id: 1 }, { id: 2 }] ?? []} />
           </View>
         )}
+        ListEmptyComponent={() => {
+          return <EmptyFound title="No videos were found" subtitle="Be the first to upload a new one" />;
+        }}
+        refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}
       />
     </SafeAreaView>
   );

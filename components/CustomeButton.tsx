@@ -1,7 +1,15 @@
 import { Text, TouchableOpacity } from "react-native";
 import React from "react";
 
-export default function CustomeButton({ title, handlePress, addStyle, textStyle, isLoading }) {
+interface CustomeButtonProps {
+  title?: string;
+  handlePress?: () => void;
+  addStyle?: string;
+  textStyle?: string;
+  isLoading?: boolean;
+}
+
+export default function CustomeButton({ title, handlePress, addStyle, textStyle, isLoading }: CustomeButtonProps) {
   return (
     <>
       <TouchableOpacity
