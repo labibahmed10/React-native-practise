@@ -7,6 +7,7 @@ import TrendingVideos from "@/components/TrendingVideos";
 import EmptyFound from "@/components/EmptyFound";
 import { getAllVideos } from "@/lib/appwrite";
 import useAppwrite from "@/hook/useAppwrite";
+import VideoCard from "@/components/VideoCard";
 
 export default function Home() {
   const [refreshing, setRefreshing] = useState(false);
@@ -25,7 +26,7 @@ export default function Home() {
       <FlatList
         className="px-4"
         data={allPosts}
-        renderItem={({ item }) => <Text className="text-white">{item.title}</Text>}
+        renderItem={({ item }) => <VideoCard video={item} />}
         keyExtractor={(item) => item.$id}
         ListHeaderComponent={() => (
           <View className="my-6 space-y-6">
