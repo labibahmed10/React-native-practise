@@ -86,3 +86,13 @@ export const getAllVideos = async () => {
     throw new Error(error);
   }
 };
+
+export const getTrendingVideos = async () => {
+  try {
+    const videos = await databases.listDocuments(databaseId, videosCollectionId, [Query.orderDesc("$createdAt", Query.limit(7))]);
+
+    return videos.documents;
+  } catch (error) {
+    throw new Error(error);
+  }
+};

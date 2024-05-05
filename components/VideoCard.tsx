@@ -18,7 +18,7 @@ interface VideoCardProps {
 export default function VideoCard({ video }: VideoCardProps) {
   const [play, setPlay] = useState(false);
   return (
-    <View className="mb-10 border">
+    <View className="mb-12 border">
       <View className="flex-row items-start justify-center flex-1">
         <View className="border border-secondary w-[50px] h-[50px] rounded-lg">
           <Image

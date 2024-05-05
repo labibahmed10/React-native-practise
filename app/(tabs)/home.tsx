@@ -5,13 +5,14 @@ import { images } from "@/constants";
 import SearchInput from "@/components/SearchInput";
 import TrendingVideos from "@/components/TrendingVideos";
 import EmptyFound from "@/components/EmptyFound";
-import { getAllVideos } from "@/lib/appwrite";
+import { getAllVideos, getTrendingVideos } from "@/lib/appwrite";
 import useAppwrite from "@/hook/useAppwrite";
 import VideoCard from "@/components/VideoCard";
 
 export default function Home() {
   const [refreshing, setRefreshing] = useState(false);
   const { data: allPosts, isLoading, refetchData } = useAppwrite(getAllVideos);
+  const { data: trendingVideos, isLoading: trendingVideosLoading, refetchData: trendingVideosRefetchData } = useAppwrite(getTrendingVideos);
 
   const onRefresh = async () => {
     setRefreshing(true);
@@ -52,7 +53,7 @@ export default function Home() {
               <Text className="font-pmedium text-sm text-gray-100">Trending Videos</Text>
             </View>
 
-            <TrendingVideos posts={[{ id: 1 }, { id: 2 }] ?? []} />
+            <TrendingVideos posts={trendingVideos ?? []} />
           </View>
         )}
         ListEmptyComponent={() => {
