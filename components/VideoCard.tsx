@@ -1,6 +1,7 @@
 import { View, Text, Image, TouchableOpacity } from "react-native";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { icons } from "@/constants";
+import { ResizeMode, Video } from "expo-av";
 
 interface VideoCardProps {
   video: {
@@ -17,19 +18,22 @@ interface VideoCardProps {
 
 export default function VideoCard({ video }: VideoCardProps) {
   const [play, setPlay] = useState(false);
+  const videoRef = useRef(null);
+  const [status, setStatus] = useState({});
   return (
-    <View className="mb-12 border">
-      <View className="flex-row items-start justify-center flex-1">
+    <View className="flex flex-col items-start mb-12 ">
+      <View className="flex flex-row gap-3 items-start">
         <View className="border border-secondary w-[50px] h-[50px] rounded-lg">
           <Image
             source={{
               uri: video?.users?.avatar,
             }}
-            resizeMode="contain"
+            resizeMode="cover"
             className="w-full h-full rounded-lg"
           />
         </View>
-        <View className="justify-center flex-1 ml-3 gap-y-1">
+
+        <View className="flex flex-col items-start flex-1 gap-y-1">
           <Text numberOfLines={1} className="text-gray-200 text-sm font-psemibold truncate">
             {video.title + video.title}
           </Text>
@@ -41,21 +45,28 @@ export default function VideoCard({ video }: VideoCardProps) {
         </View>
       </View>
 
-      <View>
+      <View className="w-full h-fit">
         {play ? (
-          <Text className="text-white"> Playing</Text>
+          <Video
+            className="w-full h-60 mt-4 relative justify-center items-center rounded-xl"
+            ref={videoRef}
+            source={{
+              uri: "https://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4",
+            }}
+            isLooping
+            useNativeControls
+            resizeMode={ResizeMode.COVER}
+            importantForAccessibility="yes"
+            onPlaybackStatusUpdate={(status) => setStatus(status)}
+          />
         ) : (
-          <TouchableOpacity
-            onPress={() => setPlay(true)}
-            activeOpacity={0.7}
-            className="w-full h-60 rounded-xl mt-3 relative justify-center items-center"
-          >
+          <TouchableOpacity onPress={() => setPlay(true)} activeOpacity={0.7} className="h-60 mt-4 relative justify-center items-center rounded-xl">
             <Image
               source={{
                 uri: "https://th.bing.com/th/id/OIP.T3uKSLyRUnESJg01eGGDLAHaEo?rs=1&pid=ImgDetMain",
               }}
-              className="w-full h-full rounded-xl mt-3"
-              resizeMode="contain"
+              className="w-full h-full rounded-xl"
+              resizeMode="cover"
             />
 
             <Image source={icons.play} className="w-12 h-12 absolute" resizeMode="contain" />

@@ -49,7 +49,7 @@ export default function Home() {
 
             {/* horizontal video list */}
 
-            <View className="w-full flex-1 pt-5 pb-8">
+            <View className="w-full flex-1 py-5 border">
               <Text className="font-pmedium text-sm text-gray-100">Trending Videos</Text>
             </View>
 

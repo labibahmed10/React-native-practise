@@ -3,14 +3,9 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "@/*": [
-        "./*"
-      ]
+      "@/*": ["./*"]
     }
   },
-  "include": [
-    "**/*.ts",
-    "**/*.tsx",
-    "constants/icons.js"
-  ]
+  "include": ["**/*.ts", "**/*.tsx"],
+  "exclude": ["./node_modules"]
 }
