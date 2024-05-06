@@ -50,7 +50,7 @@ export default function Home() {
             {/* horizontal video list */}
 
             <View className="w-full flex-1 py-5 border">
-              <Text className="font-pmedium text-sm text-gray-100">Trending Videos</Text>
+              <Text className="font-pmedium text-md text-gray-200">Trending Videos</Text>
             </View>
 
             <TrendingVideos posts={trendingVideos ?? []} />
