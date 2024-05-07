@@ -9,13 +9,13 @@ const zoomIn = {
     scale: 0.9,
   },
   1: {
-    scale: 1,
+    scale: 1.04,
   },
 };
 
 const zoomOut = {
   0: {
-    scale: 1,
+    scale: 1.04,
   },
   1: {
     scale: 0.9,
@@ -26,21 +26,26 @@ const TrendingVideoCard = ({ video, activeVideo }) => {
   const [play, setplay] = useState(false);
   const videoRef = useRef(null);
   const [status, setStatus] = useState({});
-
+  console.log(status);
   return (
-    <Animatable.View className="mr-5 mb-10" duration={500} animation={(activeVideo === video?.$id ? zoomIn : zoomOut) as any}>
+    <Animatable.View className="mr-3 ml-3 mb-10" duration={500} animation={(activeVideo === video?.$id ? zoomIn : zoomOut) as any}>
       {play ? (
         <Video
-          className="w-52 h-72 mt-4 relative justify-center items-center rounded-xl"
+          className="w-52 h-72 mt-4 rounded-xl bg-white/10"
           ref={videoRef}
           source={{
             uri: "https://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4",
           }}
           shouldPlay
           useNativeControls
-          resizeMode={ResizeMode.COVER}
+          resizeMode={ResizeMode.CONTAIN}
           importantForAccessibility="yes"
-          onPlaybackStatusUpdate={(status) => setStatus(status)}
+          onPlaybackStatusUpdate={(status) => {
+            if ((status as any).didJustFinish) {
+              setplay(false);
+              setStatus(status);
+            }
+          }}
         />
       ) : (
         <TouchableOpacity

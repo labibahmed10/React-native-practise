@@ -1,7 +1,8 @@
-import { View, Text, Image, TouchableOpacity } from "react-native";
+import { View, Text, Image, TouchableOpacity, ImageBackground } from "react-native";
 import React, { useRef, useState } from "react";
 import { icons } from "@/constants";
 import { ResizeMode, Video } from "expo-av";
+import { router } from "expo-router";
 
 interface VideoCardProps {
   video: {
@@ -23,7 +24,7 @@ export default function VideoCard({ video }: VideoCardProps) {
   return (
     <View className="flex flex-col items-start mb-12 ">
       <View className="flex flex-row gap-3 items-start">
-        <View className="border border-secondary w-[50px] h-[50px] rounded-lg">
+        <View onTouchStart={() => router.push("/profile")} className="border border-secondary w-[50px] h-[50px] rounded-lg">
           <Image
             source={{
               uri: video?.users?.avatar,
@@ -61,7 +62,7 @@ export default function VideoCard({ video }: VideoCardProps) {
           />
         ) : (
           <TouchableOpacity onPress={() => setPlay(true)} activeOpacity={0.7} className="h-60 mt-4 relative justify-center items-center rounded-xl">
-            <Image
+            <ImageBackground
               source={{
                 uri: "https://th.bing.com/th/id/OIP.T3uKSLyRUnESJg01eGGDLAHaEo?rs=1&pid=ImgDetMain",
               }}
