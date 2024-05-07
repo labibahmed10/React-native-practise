@@ -1,7 +1,6 @@
 import * as Animatable from "react-native-animatable";
-import { View, Text, FlatList, TouchableOpacity, Image, ImageBackground } from "react-native";
+import { FlatList, TouchableOpacity, Image, ImageBackground, Platform } from "react-native";
 import React, { useRef, useState } from "react";
-import EmptyFound from "./EmptyFound";
 import { ResizeMode, Video } from "expo-av";
 import { icons } from "@/constants";
 
@@ -29,7 +28,7 @@ const TrendingVideoCard = ({ video, activeVideo }) => {
   const [status, setStatus] = useState({});
 
   return (
-    <Animatable.View className="mr-5 " duration={500} animation={(activeVideo?.$id === video.$id ? zoomIn : zoomOut) as any}>
+    <Animatable.View className="mr-5 mb-10" duration={500} animation={(activeVideo === video?.$id ? zoomIn : zoomOut) as any}>
       {play ? (
         <Video
           className="w-52 h-72 mt-4 relative justify-center items-center rounded-xl"
@@ -47,14 +46,13 @@ const TrendingVideoCard = ({ video, activeVideo }) => {
         <TouchableOpacity
           onPress={() => setplay(true)}
           activeOpacity={0.7}
-          className="w-52 h-72
-           mt-3 relative justify-center items-center rounded-xl"
+          className="w-52 h-72 mt-3 relative justify-center items-center rounded-xl"
         >
           <ImageBackground
             source={{
               uri: "https://th.bing.com/th/id/OIP.T3uKSLyRUnESJg01eGGDLAHaEo?rs=1&pid=ImgDetMain",
             }}
-            className="w-52 h-72 rounded-xl overflow-hidden shadow-md shadow-black/40"
+            className="w-full h-full rounded-xl overflow-hidden shadow-md shadow-black/40"
             resizeMode="cover"
           />
 
@@ -66,26 +64,27 @@ const TrendingVideoCard = ({ video, activeVideo }) => {
 };
 
 export default function TrendingVideos({ posts }) {
-  const [activeVideo, setActiveVideo] = useState(posts[0]);
+  const [activeVideo, setActiveVideo] = useState(posts[0]?.$id);
 
   const viewableItemsChanged = ({ viewableItems }) => {
     if (viewableItems.length > 0) {
       setActiveVideo(viewableItems[0].key);
     }
   };
+
   return (
     <>
       <FlatList
         data={posts}
         keyExtractor={(post) => post.$id}
         renderItem={({ item }) => <TrendingVideoCard video={item} activeVideo={activeVideo} />}
-        horizontal={true}
+        horizontal
         onViewableItemsChanged={viewableItemsChanged}
         viewabilityConfig={{
           itemVisiblePercentThreshold: 70,
         }}
         contentOffset={{
-          x: 170,
+          x: 150,
           y: 100,
         }}
       />
