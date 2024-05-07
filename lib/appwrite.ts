@@ -96,3 +96,16 @@ export const getTrendingVideos = async () => {
     throw new Error(error);
   }
 };
+
+// Get video posts that matches search query
+export async function searchPosts(query) {
+  try {
+    const posts = await databases.listDocuments(appwriteConfig.databaseId, appwriteConfig.videosCollectionId, [Query.search("title", query)]);
+
+    if (!posts) throw new Error("Something went wrong");
+
+    return posts.documents;
+  } catch (error) {
+    throw new Error(error);
+  }
+}

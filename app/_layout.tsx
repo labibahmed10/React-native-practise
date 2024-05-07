@@ -53,6 +53,12 @@ export default function Rootlayout() {
             headerShown: false,
           }}
         />
+        <Stack.Screen
+          name="search/[query]"
+          options={{
+            headerShown: false,
+          }}
+        />
       </Stack>
       <StatusBar backgroundColor="#1E1E2D" style="light" />
     </GlobalContextProvider>

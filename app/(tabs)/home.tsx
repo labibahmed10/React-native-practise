@@ -27,7 +27,7 @@ export default function Home() {
       <FlatList
         className="px-4"
         data={allPosts}
-        renderItem={({ item, separators }) => <VideoCard video={item} />}
+        renderItem={({ item }) => <VideoCard video={item} />}
         keyExtractor={(item) => item.$id}
         ListHeaderComponent={() => (
           <View className="my-6 space-y-6">
