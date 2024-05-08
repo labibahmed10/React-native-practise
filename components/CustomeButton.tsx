@@ -7,6 +7,7 @@ interface CustomeButtonProps {
   addStyle?: string;
   textStyle?: string;
   isLoading?: boolean;
+  containerStyles: string;
 }
 
 export default function CustomeButton({ title, handlePress, addStyle, textStyle, isLoading }: CustomeButtonProps) {

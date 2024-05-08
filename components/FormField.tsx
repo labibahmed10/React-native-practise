@@ -2,10 +2,10 @@ import { View, Text, TextInput, TouchableOpacity, Image } from "react-native";
 import React, { useState } from "react";
 import { icons } from "@/constants";
 
-export default function FormField({ label, value, handleChangeText, exdStyle, ...props }) {
+export default function FormField({ label, value, handleChangeText, exdStyle, otherStyle, ...props }: any) {
   const [showPassword, setShowPassword] = useState(false);
   return (
-    <View className="mt-8 space-y-3">
+    <View className={`mt-8 space-y-3 ${otherStyle}`}>
       <Text nativeID={label} className="text-xl font-pmedium text-gray-100">
         {label}
       </Text>
