@@ -5,9 +5,11 @@ import FormField from "@/components/FormField";
 import { useState } from "react";
 import CustomeButton from "@/components/CustomeButton";
 import { Link, router } from "expo-router";
-import { signInUser } from "@/lib/appwrite";
+import { getCurrentUser, signInUser } from "@/lib/appwrite";
+import { useGlobalContext } from "@/context/GlobalProvider";
 
 export default function SignInScreen() {
+  const { setIsLoggedIn } = useGlobalContext();
   const [formVal, setFormVal] = useState({
     email: "",
     password: "",
@@ -22,6 +24,11 @@ export default function SignInScreen() {
     try {
       await signInUser(formVal);
 
+      const result = await getCurrentUser();
+      setFormVal(result);
+      setIsLoggedIn(true);
+
+      Alert.alert("Success", "User signed in successfully");
       router.replace("/home");
     } catch (error) {
       Alert.alert("Error", error.message);
