@@ -6,8 +6,10 @@ import { images } from "@/constants";
 import CustomeButton from "@/components/CustomeButton";
 import { Link, router } from "expo-router";
 import { createUser } from "@/lib/appwrite";
+import { useGlobalContext } from "@/context/GlobalProvider";
 
 export default function SingUpScreen() {
+  const { setUser, setIsLoggedIn } = useGlobalContext();
   const [formVal, setFormVal] = useState({
     username: "",
     email: "",
@@ -22,7 +24,10 @@ export default function SingUpScreen() {
     }
     isSubmitting(true);
     try {
-      await createUser(formVal);
+      const result = await createUser(formVal);
+
+      setUser(result);
+      setIsLoggedIn(true);
 
       router.replace("/home");
     } catch (error) {
