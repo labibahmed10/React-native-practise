@@ -3,7 +3,7 @@ import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useGlobalContext } from "@/context/GlobalProvider";
 import useAppwrite from "@/hook/useAppwrite";
-import { getUserPosts } from "@/lib/appwrite";
+import { getUserPosts, signOut } from "@/lib/appwrite";
 import { router } from "expo-router";
 import VideoCard from "@/components/VideoCard";
 import EmptyFound from "@/components/EmptyFound";
@@ -15,7 +15,7 @@ export default function Profile() {
   const { data: posts } = useAppwrite(() => getUserPosts(user.$id));
 
   const logout = async () => {
-    // await signOut();
+    await signOut();
     setUser(null);
     setIsLogged(false);
 
