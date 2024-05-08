@@ -7,7 +7,6 @@ import { searchPosts } from "@/lib/appwrite";
 import VideoCard from "@/components/VideoCard";
 import SearchInput from "@/components/SearchInput";
 import EmptyFound from "@/components/EmptyFound";
-
 export default function Search() {
   const { query } = useLocalSearchParams();
   const { data: posts, refetchData } = useAppwrite(() => searchPosts(query));
